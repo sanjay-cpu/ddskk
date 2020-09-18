@@ -1,7 +1,7 @@
 language: generic
 os: linux
 arch:
-  - amd64
+        # - amd64
   - ppc64le
 dist: xenial
 env:
@@ -21,7 +21,7 @@ before_install:
   - evm config path /tmp
   - evm install $EVM_EMACS --use --skip
 before_script:
-  - if [ "$TRAVIS_ARCH" = "ppc64le" ]; then sudo yum -y install emacs; fi
+  - if [ "$TRAVIS_ARCH" = "ppc64le" ]; then udo dnf update ;sudo dnf -y install emacs; fi
   - if [[ "$EVM_EMACS" = 'emacs-24.3-travis' ]]; then
       make downloads;
     fi
